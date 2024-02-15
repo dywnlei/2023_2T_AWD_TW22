@@ -1,0 +1,36 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.day-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.day-button:hover {
+    background-color: #2980b9;
+}
+
+#box {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -200%);
+    transition: transform 3s ease; /* Set a longer transition duration */
+}
+
+.hidden {
+    display: none;
+}
+
