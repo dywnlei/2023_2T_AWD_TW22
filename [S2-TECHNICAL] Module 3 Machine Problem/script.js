@@ -2,60 +2,55 @@ let box = document.getElementById('box');
 let initialTransitionDuration;
 
 function showBox(day) {
-    // Hide box if it's currently visible
     if (!box.classList.contains('hidden')) {
-        box.style.transform = 'translate(-50%, -200%)'; // Reset position
+        box.style.transform = 'translate(-50%, -200%)'; 
         setTimeout(() => {
-            box.style.transitionDuration = initialTransitionDuration; // Restore initial transition duration
+            box.style.transitionDuration = initialTransitionDuration; 
             box.classList.add('hidden');
-            box.offsetHeight; // Trigger reflow to reset transition
-            box.style.transitionDuration = ''; // Remove inline transition duration
-        }, 1000); // Adjust timing to match the transition duration
+            box.offsetHeight; 
+            box.style.transitionDuration = ''; 
+        }, 1000); 
     }
     
-    // Show box
     box.textContent = day;
     box.classList.remove('hidden');
     
-    // Get initial transition duration
     if (!initialTransitionDuration) {
         initialTransitionDuration = getComputedStyle(box).transitionDuration;
     }
     
-    // Move down with animation
     setTimeout(() => {
         box.style.transform = 'translate(-50%, 50%)'; // End position (lower)
     }, 100);
     
-    // Change color based on the day after a delay
     let color;
     switch(day) {
         case 'Monday':
-            color = '#3498db'; // Blue
+            color = '#3498db'; 
             break;
         case 'Tuesday':
-            color = '#2ecc71'; // Green
+            color = '#2ecc71'; 
             break;
         case 'Wednesday':
-            color = '#e74c3c'; // Red
+            color = '#e74c3c'; 
             break;
         case 'Thursday':
-            color = '#9b59b6'; // Purple
+            color = '#9b59b6'; 
             break;
         case 'Friday':
-            color = '#f1c40f'; // Yellow
+            color = '#f1c40f'; 
             break;
         case 'Saturday':
-            color = '#e67e22'; // Orange
+            color = '#e67e22'; 
             break;
         case 'Sunday':
-            color = '#1abc9c'; // Turquoise
+            color = '#1abc9c'; 
             break;
         default:
-            color = '#3498db'; // Default to blue
+            color = '#3498db'; 
     }
     
-    // Change box color after a delay
+    
     setTimeout(() => {
         box.style.backgroundColor = color;
     }, 500);
